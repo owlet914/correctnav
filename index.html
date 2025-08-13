@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>CorrectNav Research</title>
+    <style>
+        body {
+            font-family: Lato, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #d551c1;
+            font-weight: 700;
+            font-size: 2.8rem;  /* 显著增大标题字体 */
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        h2 {
+            color: #d551c1;
+            font-weight: 700;
+            font-size: 2.2rem;  /* 相应增大二级标题 */
+            margin: 2rem 0 1rem;
+        }
+        .center {
+            text-align: center;
+        }
+        .abstract {
+            color: #3d85c6;
+            margin-left: 15pt;
+            font-size: 1.1rem;
+        }
+        .authors {
+            color: #0000ff;
+            font-weight: 700;
+            font-size: 1.4rem;  /* 增大作者字体与标题匹配 */
+            margin: 1.5rem 0;
+        }
+        .affiliation {
+            color: #000000;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 30px auto;
+        }
+        hr {
+            margin: 2.5rem 0;
+            border: 0;
+            height: 1px;
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body dir="ltr">
+    <section class="center">
+        <h1>CorrectNav: Self-Correction Flywheel Empowers Vision-Language-Action Navigation Model</h1>
+        <p class="authors">Zhuoyuan Yu, Yuxing Long, Zihan Yang, Chengyan Zeng, Hongwei Fan, Jiyao Zhang, Hao Dong</p>
+        <p class="affiliation">CFCS, School of Computer Science, Peking University, PKU-Agibot Lab</p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Abstract</h2>
+        <p class="abstract">
+            Existing vision-and-language navigation models often deviate from the correct trajectory when executing instructions. However, these models lack effective error correction capability, hindering their recovery from errors. To address this challenge, we propose Self-correction Flywheel, a novel post-training paradigm. Instead of considering the model's error trajectories on the training set as a drawback, our paradigm emphasizes their significance as a valuable data source. We have developed a method to identify deviations in these error trajectories and devised innovative techniques to automatically generate self-correction data for perception and action. These self-correction data serve as fuel to power the model's continued training. The brilliance of our paradigm is revealed when we re-evaluate the model on the training set, uncovering new error trajectories. At this time, the self-correction flywheel begins to spin. Through multiple flywheel iterations, we progressively enhance our monocular RGB-based VLA navigation model \method. Experiments on R2R-CE and RxR-CE benchmarks show \method achieves new state-of-the-art success rates of 65.1\% and 69.3\%, surpassing prior best VLA navigation models by 8.2\% and 16.4\%. Real robot tests in various indoor and outdoor environments demonstrate \method's superior capability of error correction, dynamic obstacle avoidance, and long instruction following.
+        </p>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Overview</h2>
+        <img src="联想截图_20250813104610.png" alt="CorrectNav Overview">
+        <p class="abstract">
+            Figure 2: The overview of CorrectNav training. CorrectNav is first finetuned on the navigation tasks (Left), including action prediction and instruction generation. To enhance vision diversity, we implement a suite of domain randomization strategies. Subsequently, CorrectNav is post-trained with our proposed Self-correction Flywheel paradigm (Right). This paradigm operates in a continuous loop of model evaluation, deviation detection, data creation, and continued training. Specifically, the data creation part can automatically collect error-correcting trajectory and keyframe perception data. Through multiple training iterations, CorrectNav can learn how to recover from deviations.
+        </p>
+    </section>
+</body>
+</html>
